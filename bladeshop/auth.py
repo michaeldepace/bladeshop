@@ -1,7 +1,7 @@
 import functools
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
-from flaskr.db import get_db
+from bladeshop.db import get_db
 
 #connect this to the template html files and url routes
 bp = Blueprint('auth', __name__, url_prefix='/auth')
@@ -24,8 +24,11 @@ def load_logged_in_user():
         g.user = None
     else: #if there is a user id, then the user 
         g.user = get_db().execute( #what is g.user?
-            'SELECT * FROM user WHERE id = ?', (user_id,)
+            'SELECT * FROM user WHERE usr_id = ?', (user_id,)
         ).fetchone()
+
+
+
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
@@ -71,10 +74,10 @@ def login():
             error = 'Incorrect username.'
         elif not check_password_hash(user['password'], password):
             error = 'Incorrect password.'
-
+        
         if error is None:
             session.clear()
-            session['user_id'] = user['id']
+            session['user_id'] = user['usr_id']
             return redirect(url_for('index'))
 
         flash(error)
