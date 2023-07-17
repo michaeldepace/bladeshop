@@ -16,7 +16,7 @@ def login_required(view):
     return wrapped_view
 
 #register a function that runs before every page request to make current user info accessible across application
-@bp.before_app_request
+@bp.before_app_request #maybe this just makes sure that the user info is available before each request/page load so it is seamlessly available at all times
 def load_logged_in_user():
     user_id = session.get('user_id') #checks if user id is stored in current session
 
@@ -26,9 +26,6 @@ def load_logged_in_user():
         g.user = get_db().execute( #what is g.user?
             'SELECT * FROM user WHERE usr_id = ?', (user_id,)
         ).fetchone()
-
-
-
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():

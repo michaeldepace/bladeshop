@@ -24,12 +24,26 @@ def get_post(id, check_author=True):
 @bp.route('/')
 def index():
     db = get_db()
+    prds = db.execute('SELECT prd_id, prd_name, prd_category, prd_price FROM product ORDER BY prd_name DESC').fetchall() #grab all products from sqlite table
     # posts = db.execute(
     #     'SELECT p.id, title, body, created, author_id, username'
     #     ' FROM post p JOIN user u ON p.author_id = u.id'
     #     ' ORDER BY created DESC'
     # ).fetchall()
-    return render_template('shop/index.html', test="hello world")
+    return render_template('shop/index.html', products=prds)
+
+@bp.route('/shop/<int:prd_id>')
+def product(prd_id):
+    db = get_db()
+    prd = db.execute('SELECT prd_id, prd_name, prd_category, prd_price FROM product where prd_id=?', (prd_id,)).fetchone()
+    if prd is None:
+        abort(404, "This product does not exist.")
+
+    return render_template('shop/product.html', product=prd)
+
+    
+
+
 
 # @bp.route('/create', methods=('GET', 'POST'))
 # @login_required
@@ -91,6 +105,3 @@ def index():
 #     db.execute('DELETE FROM post WHERE id = ?', (id,))
 #     db.commit()
 #     return redirect(url_for('blog.index'))
-
-
-

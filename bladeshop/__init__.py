@@ -31,6 +31,9 @@ def create_app(test_config=None):
 
     from . import shop
     app.register_blueprint(shop.bp)
+
+    from . import cart
+    app.register_blueprint(cart.bp)
     
     app.add_url_rule('/', endpoint='index')
     

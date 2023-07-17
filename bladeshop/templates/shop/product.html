@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block header %}
+    {{ product.prd_name }}
+{% endblock header %}
+{% block content %}
+    {{ product.prd_category }} link the category to show all products in that category
+    {{ product.prd_price }}
+    add selector for amount and add to cart button
+{% endblock content %}
+
+page for an individual product
