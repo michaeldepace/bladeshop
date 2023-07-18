@@ -1,6 +1,7 @@
-html { font-family: sans-serif; background: blue; padding: 1rem; }
+html { font-family: sans-serif; background: lightcyan; padding: 1rem; }
 body { max-width: 960px; margin: 0 auto; background: white; border-radius: .5rem; }
 h1 { font-family: serif; color: green; margin: 1rem 0; }
+nav > h1 > a { color: darkgoldenrod; }
 a { color: black; }
 hr { border: none; border-top: 1px solid lightgray; }
 nav { background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }
@@ -9,10 +10,44 @@ nav h1 { text-decoration: none; padding: 0.25rem 0.5rem; }
 nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
 nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 .content { padding: 0 1rem 1rem; }
-.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; margin: .5rem; }
+.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; }
 .content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }
 .flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
-.post > header { display: flex; align-items: flex-end; font-size: 0.85em; }
+
+
+
+
+.shop-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 10rem;
+    justify-content: space-around;
+    /* align-items: stretch; */
+}
+
+.shop-items > article.product{
+    padding: 1rem;
+    width: 10rem;
+    margin: 1rem 0;
+    border: 1px solid grey;
+    border-radius: .1rem;
+}
+
+/* .shop-items::after {
+    content: "";
+    flex-basis: 10rem give it the same width of your child or item;
+} */
+    
+/* .shop-items:last-child {
+    margin-right: auto;
+} */
+
+
+
+
+
+/* .post > header { display: flex; align-items: flex-end; font-size: 0.85em; }
 .post > header > div:first-of-type { flex: auto; }
 .post > header h1 { font-size: 1.5em; margin-bottom: 0; }
 .post .about { color: slategray; font-style: italic; }
@@ -21,6 +56,6 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 .content form { margin: 1em 0; display: flex; flex-direction: column; }
 .content label { font-weight: bold; margin-bottom: 0.5em; }
 .content input, .content textarea { margin-bottom: 1em; }
-.content textarea { min-height: 12em; resize: vertical; }
+.content textarea { min-height: 12em; resize: vertical; } */
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }

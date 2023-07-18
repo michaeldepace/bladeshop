@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS user_order;
 
 
 CREATE TABLE user (
@@ -21,6 +22,12 @@ CREATE TABLE cart (
     prd_id INTEGER NOT NULL,
     prd_amount INTEGER NOT NULL
 )
+
+-- CREATE TABLE user_order(
+--     ordr_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+-- )
+
 
 -- DROP TABLE IF EXISTS post;
 -- CREATE TABLE post (

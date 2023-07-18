@@ -6,9 +6,10 @@
     </head>
     <body>
         <nav>
-            <h1>BladeShop</h1>
+            <h1><a href="/">BladeShop</a></h1>
             <ul>
             {% if g.user %}
+                <li><a href="{{ url_for('cart.cart') }}">Cart</a></li>
                 <li><span>{{ g.user['username'] }}</span>
                 <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
             {% else %}

@@ -3,14 +3,15 @@
     Shop Home
 {% endblock header %}
 {% block content %}
+    <div class="shop-items">
+
     {% for prd in products %}
-        <article class="product" style="border: 3px solid black;">
+        <article class="product">
             <a href="{{ url_for('shop.product', prd_id=prd.prd_id) }}">
                 <header>
                     <h2>{{prd.prd_name}}</h2>
                 </header>
                 <div class="body">
-                    {{prd.prd_id}}
                     <p>{{prd.prd_category}}</p>
                     <p>${{prd.prd_price}}</p>
                     <div>
@@ -27,4 +28,6 @@
             <button onclick="addToCart({{ prd.prd_id }}, 1)" type="button">add to cart</button>
         </article>
     {% endfor %}
+
+    </div>
 {% endblock content %}

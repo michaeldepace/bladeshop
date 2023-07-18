@@ -1,2 +1,22 @@
-add everything in the current user's cart
+{% extends 'base.html' %}
+{% block header %}
+<h1>Cart</h1>
+{% endblock header %}
+{% block content %}
 
+
+{% for item in items %}
+<div>
+    <p>{{item.prd_id}}</p>
+    <p>{{item.prd_name}}</p>
+    <p>{{item.prd_amount}}</p>
+</div>
+{% endfor %}
+
+<div>
+    <div style="display: flex;">
+        <button>Checkout</button>
+    </div>
+</div>
+
+{% endblock content %}
