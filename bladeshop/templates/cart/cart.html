@@ -4,17 +4,24 @@
 {% endblock header %}
 {% block content %}
 
+<div class="cart-items">
 
 {% for item in items %}
-<div>
-    <p>{{item.prd_id}}</p>
-    <p>{{item.prd_name}}</p>
-    <p>{{item.prd_amount}}</p>
-</div>
+<article class="item">
+    <header>
+        <h2>{{item.prd_name}}</h2>
+    </header>
+    <div class="body">
+        <p>{{item.prd_price}}</p>
+        <p>{{item.prd_amount}}</p>
+        add control for changing item amount
+    </div>
+</article>
 {% endfor %}
 
+</div>
 <div>
-    <div style="display: flex;">
+    <div style="display: flex; flex-direction: row">
         <button>Checkout</button>
     </div>
 </div>
