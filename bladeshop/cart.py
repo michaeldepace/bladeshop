@@ -18,6 +18,14 @@ def addToCart(prd_id, prd_qty):
     db.commit()
     return "Success", 200
 
+@bp.route('/cart/remove/<int:crt_id>', methods=['POST'])
+@login_required
+def removeFromCart(crt_id):
+    db=get_db()
+    db.execute('DELETE FROM cart WHERE crt_id=' + str(crt_id))
+    db.commit()
+    return render_template('cart/cart.html')
+
 @bp.route('/cart')
 @login_required
 def cart():

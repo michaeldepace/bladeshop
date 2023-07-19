@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_socketio import SocketIO
 
 
 def create_app(test_config=None):
@@ -9,6 +10,8 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'bladeshop.sqlite'),
     )
+
+    socketio = SocketIO(app)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing

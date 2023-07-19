@@ -7,6 +7,7 @@
 <div class="cart-items">
 
 {% for item in items %}
+<!-- {{item.crt_id}} -->
 <article class="item">
     <header>
         <h2>{{item.prd_name}}</h2>
@@ -19,7 +20,7 @@
             <input class="item-qty-ctr" id="{{ item.prd_id }}" type="number" min="1" value="{{item.prd_amount}}"/>
         </div>
         <div>
-            <button type="button">Remove from Cart</button>
+            <button onclick="removeFromCart({{item.crt_id}})" type="button">Remove from Cart</button>
         </div>
     </div>
 </article>
