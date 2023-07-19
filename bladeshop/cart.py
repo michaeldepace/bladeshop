@@ -12,7 +12,7 @@ def addToCart(prd_id, prd_qty):
     db = get_db()
     count = db.execute('SELECT COUNT(*) FROM cart WHERE usr_id='+str(g.user['usr_id'])+' AND prd_id='+str(prd_id)+'').fetchall()[0][0]
     if count > 0:
-        db.execute('UPDATE cart SET prd_amount = prd_amount + 1 WHERE usr_id='+str(g.user['usr_id'])+' AND prd_id='+str(prd_id)+'')    
+        db.execute('UPDATE cart SET prd_amount = prd_amount + '+str(prd_qty)+' WHERE usr_id='+str(g.user['usr_id'])+' AND prd_id='+str(prd_id)+'')    
     else:
         db.execute('INSERT INTO cart (usr_id, prd_id, prd_amount) VALUES ('+str(g.user['usr_id'])+', '+str(prd_id)+','+str(prd_qty)+');')    
     db.commit()

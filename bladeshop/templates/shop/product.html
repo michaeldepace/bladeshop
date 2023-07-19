@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 {% block header %}
-    {{ product.prd_name }}
+<h1>{{ product.prd_name }}</h1>
 {% endblock header %}
 {% block content %}
-    {{ product.prd_category }} link the category to show all products in that category
-    {{ product.prd_price }}
-    add selector for amount and add to cart button
-{% endblock content %}
+<div>
+    <div>
+        <img src="#" alt="pic" />
+    </div>
+    <div>
+        <p>{{ product.prd_category }} {{ product.prd_price }}</p>
+    </div>
+    <div>
+        <input id="nbr-prd-amt" type="number" min="1" max="5" value="1"/>
+    </div>
+</div>
+<div>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content:center;">
+        <button onclick="addToCart({{ product.prd_id }}, $('#nbr-prd-amt').val())" type="button">Add to Cart</button>
+    </div>
+</div>
 
-page for an individual product
+    link the category to show all products in that category
+{% endblock content %}
