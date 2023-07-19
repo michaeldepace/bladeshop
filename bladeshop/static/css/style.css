@@ -54,6 +54,14 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
     border-radius: .1rem; */
 }
 
+.cart-items > article.item > div.body{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
 /* .shop-items::after {
     content: "";
     flex-basis: 10rem give it the same width of your child or item;
