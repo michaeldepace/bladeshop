@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block header %}
-    Shop Home
+<h1>Shop Home</h1>
 {% endblock header %}
 {% block content %}
     <div class="shop-items">
-
+        add a redirect if someone tries to add an item to their cart that brings up a login prompt
     {% for prd in products %}
         <article class="product">
             <a href="{{ url_for('shop.product', prd_id=prd.prd_id) }}">
@@ -12,7 +12,7 @@
                     <h2>{{prd.prd_name}}</h2>
                 </header>
                 <div class="body">
-                    <p>{{prd.prd_category}}</p>
+                    <div class="item-category-pill">{{prd.prd_category}}</div>
                     <p>${{prd.prd_price}}</p>
                 </div>
             </a>

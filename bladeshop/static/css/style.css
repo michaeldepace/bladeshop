@@ -46,6 +46,10 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
     display: flex;
     flex-direction: row;
     flex-basis: 10rem;
+    border: 1px solid grey;
+    border-radius: .1rem;
+    padding: .5rem;
+    margin: .25rem 0;
 
     /* padding: 1rem;
     width: 10rem;
@@ -62,6 +66,23 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
     align-items: center;
 }
 
+.item-category-pill{
+    padding: .1rem .5rem;
+    border-radius: 3rem;
+    background-color: lightblue;
+    border: 2px solid black;
+    width:fit-content;
+
+}
+
+.item-qty-ctr{
+    width: 3rem;
+}
+
+img.product-image{
+    width: 30%;
+    height: 30%;
+}
 /* .shop-items::after {
     content: "";
     flex-basis: 10rem give it the same width of your child or item;

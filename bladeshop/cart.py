@@ -24,3 +24,4 @@ def cart():
     db = get_db()
     cart_items = db.execute('SELECT * FROM cart c JOIN product p on c.prd_id = p.prd_id WHERE c.usr_id='+str(g.user['usr_id'])+'').fetchall()
     return render_template('cart/cart.html', items=cart_items)
+    

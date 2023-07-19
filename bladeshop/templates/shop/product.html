@@ -3,12 +3,18 @@
 <h1>{{ product.prd_name }}</h1>
 {% endblock header %}
 {% block content %}
+<form method="POST">
+    a form for the qty and a submit add to cart button
+
+</form>
 <div>
     <div>
-        <img src="#" alt="pic" />
+        <!-- this next line uses |string() which is a special operator required in jinja html templating instead of the str() function which doesn't work -->
+        <img class="product-image" src="{{ url_for('static', filename='img/img-' + product.prd_id|string() +'.webp') }}" alt="pic" />
     </div>
     <div>
-        <p>{{ product.prd_category }} {{ product.prd_price }}</p>
+        <div class="item-category-pill">{{ product.prd_category }}</div>
+        <p>{{ product.prd_price }}</p>
     </div>
     <div>
         <input id="nbr-prd-amt" type="number" min="1" max="5" value="1"/>
