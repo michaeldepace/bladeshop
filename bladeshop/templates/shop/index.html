@@ -4,14 +4,14 @@
 {% endblock header %}
 {% block content %}
     <div class="shop-items">
+        <ul>
         todo:
--make changes in cart qty automatically update db
--make remove from cart automatically update
--add cart total line
--finish checkout button functionality
--add product filtering & category pill linking
--clean ui (fix grids especially)
-        add a redirect if someone tries to add an item to their cart that brings up a login prompt
+<li>-make changes in cart qty automatically update webpage</li>
+<li>-finish checkout button functionality</li>
+<li>-add product filtering & category pill linking</li>
+<li>-clean ui (fix grids especially)</li>
+<li>add a redirect if someone tries to add an item to their cart that brings up a login prompt</li>
+    </ul>
     {% for prd in products %}
         <article class="product">
             <a href="{{ url_for('shop.product', prd_id=prd.prd_id) }}">

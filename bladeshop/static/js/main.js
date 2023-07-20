@@ -7,3 +7,7 @@ function removeFromCart(crt_id){
     fetch('/cart/remove/' + crt_id, {method: 'POST'});
     // document.location.reload(true);
 }
+
+function setCartItemQty(prd_id, prd_qty){
+    fetch('/cart/itemqty/' + prd_id + '/' + prd_qty, {method: 'POST'});
+}

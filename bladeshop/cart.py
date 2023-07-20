@@ -26,10 +26,19 @@ def removeFromCart(crt_id):
     db.commit()
     return render_template('cart/cart.html')
 
+@bp.route('/cart/itemqty/<int:prd_id>/<int:prd_qty>', methods=['POST'])
+@login_required
+def setCartQuantity(prd_id, prd_qty):
+    db = get_db()
+    db.execute('UPDATE cart SET prd_amount = '+str(prd_qty)+' WHERE usr_id='+str(g.user['usr_id'])+' AND prd_id='+str(prd_id)+'')
+    db.commit()
+    return "Success", 200
+
 @bp.route('/cart')
 @login_required
 def cart():
     db = get_db()
+    cart_total = db.execute('select SUM(c.prd_amount * p.prd_price) FROM CART c JOIN PRODUCT p on c.prd_id=p.prd_id WHERE c.usr_id = 1').fetchone()[0]
     cart_items = db.execute('SELECT * FROM cart c JOIN product p on c.prd_id = p.prd_id WHERE c.usr_id='+str(g.user['usr_id'])+'').fetchall()
-    return render_template('cart/cart.html', items=cart_items)
+    return render_template('cart/cart.html', items=cart_items, cartTotal=cart_total)
     

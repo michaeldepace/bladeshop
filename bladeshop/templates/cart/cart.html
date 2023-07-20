@@ -17,7 +17,7 @@
         <p>{{item.prd_amount}}</p>
         <p>${{item.prd_price}}</p>
         <div>
-            <input class="item-qty-ctr" id="{{ item.prd_id }}" type="number" min="1" value="{{item.prd_amount}}"/>
+            <input onchange="setCartItemQty({{item.prd_id}}, $('#crt-item-{{item.prd_id}}').val());" class="item-qty-ctr" id="crt-item-{{ item.prd_id }}" type="number" min="1" value="{{item.prd_amount}}"/>
         </div>
         <div>
             <button onclick="removeFromCart({{item.crt_id}})" type="button">Remove from Cart</button>
@@ -31,7 +31,7 @@
 <div style="display: flex; flex-flow: column nowrap; align-content:center; justify-content:center; align-items:center;">
     <h2 style="text-align:center;">Cart Total</h2>
     <div style="width:50%;">
-        <p>$</p>
+        <p>${{cartTotal}}</p>
     </div>
 </div>
 
