@@ -24,7 +24,10 @@ def get_post(id, check_author=True):
 @bp.route('/')
 def index():
     db = get_db()
-    prds = db.execute('SELECT prd_id, prd_name, prd_category, prd_price FROM product ORDER BY prd_name DESC').fetchall() #grab all products from sqlite table
+    # url_query = request.args.to_dict()
+    
+    search_name=request.args.get("name", default="", type=str)
+    prds = db.execute('SELECT prd_id, prd_name, prd_category, prd_price FROM product WHERE prd_name like "%'+search_name+'%" ORDER BY prd_name DESC').fetchall() #grab all products from sqlite table
     # posts = db.execute(
     #     'SELECT p.id, title, body, created, author_id, username'
     #     ' FROM post p JOIN user u ON p.author_id = u.id'

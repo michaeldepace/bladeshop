@@ -3,6 +3,12 @@
 <h1>Shop Home</h1>
 {% endblock header %}
 {% block content %}
+    <div class="search-block" action="/">
+        <form method="get" >
+            <input name="name" type="text" placeholder="search" value="{{request.args.get("name", default="")}}" />
+            <button type="submit">Search</button>
+        </form>
+    </div>
     <div class="shop-items">
         <ul>
         todo:
